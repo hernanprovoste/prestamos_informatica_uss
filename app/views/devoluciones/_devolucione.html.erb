@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div class="large-12 columns">
+  <div class="show-container">
+    <div class="show-card bg-blue">
+
+      <p class="head-devoluciones">
+        <strong>Fecha Devolución:</strong>
+        <%= devolucione.created_at.strftime("%d %b %y / %H:%M Hrs") %>
+      </p>
+
+      <p class="head-devoluciones">
+        <strong>Recepcionado por:</strong>
+        <%= devolucione.usuario.nombre << " " << devolucione.usuario.apellido %>
+      </p>
+
+      <p class="head-devoluciones">
+        <strong>Descripción:</strong><br>
+        <%= devolucione.descripcion %>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row header-section">
+  <div class="large-8 columns no-padding">
+    <h1>Clientes</h1>
+  </div>
+  <div class="large-2 columns no-padding">
+    <%= link_to 'Agregar Cliente', new_cliente_path, class: 'button button-add' %>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rut</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Correo institucional</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <tr>
+        <td><%= cliente.rut %></td>
+        <td><%= cliente.nombre %></td>
+        <td><%= cliente.apellido %></td>
+        <td><%= cliente.correo_institucional %></td>
+        <td><%= link_to 'Show', cliente %></td>
+        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
+        <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

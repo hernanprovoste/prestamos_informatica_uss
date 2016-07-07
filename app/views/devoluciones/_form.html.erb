@@ -1,0 +1,29 @@
+<%= form_for(@devolucione) do |f| %>
+  <% if @devolucione.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@devolucione.errors.count, "error") %> prohibited this devolucione from being saved:</h2>
+
+      <ul>
+      <% @devolucione.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :fechaDevolucion %><br>
+    <%= f.datetime_select :fechaDevolucion %>
+  </div>
+  <div class="field">
+    <%= f.label :prestamo_id %><br>
+    <%= f.text_field :prestamo_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,38 @@
+<%= form_for(@equipo) do |f| %>
+  <% if @equipo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipo.errors.count, "error") %> prohibited this equipo from being saved:</h2>
+
+      <ul>
+      <% @equipo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :codUss %><br>
+    <%= f.text_field :codUss %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo %><br>
+    <%= collection_select(:equipo, :tipo_id, Tipo.all, :id, :nombre, {}, {:multiple => false}) %>
+  </div>
+  <div class="field">
+    <%= f.label :marca %><br>
+    <%= collection_select(:equipo, :marca_id, Marca.all, :id, :nombre, {}, {:multiple => false}) %>
+  </div>
+  <div class="field">
+    <%= f.label :modelo %><br>
+    <%= f.text_field :modelo %>
+  </div>
+  <div class="field">
+    <%= f.label :serial %><br>
+    <%= f.text_field :serial %>
+  </div> 
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,145 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation
+
+ */
+
+@import "foundation_and_overrides";
+@import url(https://fonts.googleapis.com/css?family=Asap:400,700,400italic,700italic);
+@import 'motion-ui/motion-ui';
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+@mixin box-shadow( $horiz : .5em , $vert : .5em , $blur :20px , $spread : 1px , $color : #000000 ){
+  -webkit-box-shadow: $horiz $vert $blur $spread $color;
+  -moz-box-shadow: $horiz $vert $blur $spread $color;
+  box-shadow: $horiz $vert $blur $spread $color;
+}
+
+$color-background: #FFFFFF; //Color ocupado para fondo, textos e iconos.
+$color-header: #0288D1; //Utilizado como background en botón.
+$color-sidebar: #03A9F4;
+$color-secundary-text: #727272;
+$color-black: #212121;
+$color-green: #27ae60; //Color utilziado para tabla
+$color-red: #e74c3c; //Color utilizado para tabla
+$color-orange: #e67e22;
+
+
+body {
+  font-family: 'Asap', sans-serif;
+  background: $color-background;
+}
+
+header, footer {
+  background: $color-header;
+  width: 100%;
+  h2 {
+    text-align: center;
+    margin: 10px auto;
+    font-size: 20px;
+    color: $color-background;
+  }
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.top-bar, .top-bar-left, .top-bar-right, .dropdown {
+  background: $color-sidebar;
+  height: 100%;
+  .top-bar-left, .top-bar-right {
+    li {
+      background: $color-sidebar;
+      :hover {
+        background: $color-header;
+      }
+      a {
+        color: $color-background;
+      }
+    }
+    .dropdown {
+      text-align: center;
+      font-size: 16px;
+      color: $color-background;
+      .menu {
+        font-size: 14px;
+        width: 100%;
+        a {
+          color: $color-background;
+        }
+      }
+    }
+  }
+}
+
+.table-prestamo, .table-prestamo tr{
+  background: transparent !important;
+  thead {
+    border: 0.5px solid $color-background;
+  }
+  td{
+    color: $color-background;
+  }
+  .td-green {
+    background: $color-green !important;
+  }
+  .td-red {
+    background: $color-red !important;
+  }
+  a, a:hover, a:visited {
+    color: $color-background;
+  }
+}
+
+.header-section {
+  border-bottom: 1px solid $color-black;
+  margin-bottom: 5px;
+  vertical-align: bottom;
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: $color-secundary-text;
+  }
+}
+
+.button-add {
+  float: right;
+  a, &:visited {
+    color: $color-background;
+  }
+}
+
+.bg-blue {
+  background: $color-sidebar;
+}
+//@include box-shadow();
+.bg-orange {
+  background: $color-orange;
+}
+
+.show-container {
+  width: 100%;
+  .show-card {
+    margin: 5px auto;
+    padding: 10px 20px;
+    width: 70%;
+  }
+  .head-devoluciones {
+    font-size: 20px;
+    color: $color-background;
+  }
+}

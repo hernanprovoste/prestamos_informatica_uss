@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="large-12 columns">
+
+  <div class="row">
+    <div class="large-12 columns no-padding">
+      <div class="actions">
+        <%= link_to 'Atrás', prestamos_path, class: 'button button-add' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-container">
+    <div class="show-card bg-orange">
+      <p class="head-devoluciones">
+        <strong>Fecha Préstamo:</strong>
+        <%= @prestamo.created_at.strftime("%d %b %y / %H:%M Hrs") %>
+      </p>
+
+      <p class="head-devoluciones">
+        <strong>Estado:</strong>
+        <%= @prestamo.estado %>
+      </p>
+
+      <p class="head-devoluciones">
+        <strong>Descripción:</strong><br>
+        <%= @prestamo.descripcion %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<% if @prestamo.estado == "Prestado" %>
+  <%= render 'form_devolucion' %>
+<% else %>
+  <!-- Ingresar div bloqueado. -->
+  <%= render @prestamo.devoluciones %>
+<% end %>

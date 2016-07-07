@@ -1,0 +1,28 @@
+<!-- Menu Arriba -->
+<div class="expanded row">
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li><%= link_to 'Préstamos', prestamos_path %></li>
+        <li><%= link_to 'Equipos', equipos_path %></li>
+        <li><%= link_to 'Marcas de Equipos', marcas_path %></li>
+        <li><%= link_to 'Tipos de Equipos', tipos_path %></li>
+        <li><%= link_to 'Clientes', clientes_path %></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <% if current_user %>
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <%= current_user.nombre << " " << current_user.apellido %>
+          </li>
+          <li><%= link_to "Cerrar Sesión", logout_path, method: "delete" %></li>
+        </ul>
+      <% else %>
+        <ul>
+          <li><%= link_to "Login", 'login' %></a></li>
+          <li><%= link_to "Signup", 'signup' %></a></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>

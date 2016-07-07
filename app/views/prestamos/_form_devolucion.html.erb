@@ -1,0 +1,25 @@
+
+  <div class="row header-section">
+    <div class="large-12 columns no-padding">
+      <h1>Entregar</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <div class="large-6 columns">
+        <%= form_for([@prestamo, @prestamo.devoluciones.build]) do |f| %>
+          <div>
+            <%= f.text_field :usuario_id, value: current_user.id, class: 'hide' %>
+          </div>
+          <p>
+            <%= f.label :descripcion %>
+            <%= f.text_area :descripcion %>
+          </p>
+          <p>
+            <%= f.submit "Devolver", class: 'success button'  %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>

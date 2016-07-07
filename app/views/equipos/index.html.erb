@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row header-section">
+  <div class="large-8 columns no-padding">
+    <h1>Equipos</h1>
+  </div>
+  <div class="large-2 columns no-padding">
+    <%= link_to 'Agregar Equipo', new_equipo_path, class: 'button button-add' %>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Coduss</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Serial</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipos.each do |equipo| %>
+      <tr>
+        <td><%= equipo.tipo.nombre %></td>
+        <td><%= equipo.codUss %></td>
+        <td><%= equipo.marca.nombre %></td>
+        <td><%= equipo.modelo %></td>
+        <td><%= equipo.serial %></td>
+        <td><%= link_to 'Show', equipo %></td>
+        <td><%= link_to 'Edit', edit_equipo_path(equipo) %></td>
+        <td><%= link_to 'Destroy', equipo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @equipo.tipo.nombre %>
+</p>
+
+<p>
+  <strong>Coduss:</strong>
+  <%= @equipo.codUss %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @equipo.marca.nombre %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @equipo.modelo %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @equipo.serial %>
+</p>
+
+<%= link_to 'Edit', edit_equipo_path(@equipo) %> |
+<%= link_to 'Back', equipos_path %>

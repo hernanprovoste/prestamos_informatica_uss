@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Devoluciones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Fechadevolucion</th>
+      <th>Prestamo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @devoluciones.each do |devolucione| %>
+      <tr>
+        <td><%= devolucione.descripcion %></td>
+        <td><%= devolucione.fechaDevolucion %></td>
+        <td><%= devolucione.prestamo %></td>
+        <td><%= link_to 'Show', devolucione %></td>
+        <td><%= link_to 'Edit', edit_devolucione_path(devolucione) %></td>
+        <td><%= link_to 'Destroy', devolucione, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Devolucione', new_devolucione_path %>

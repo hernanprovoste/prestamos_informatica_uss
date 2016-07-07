@@ -1,0 +1,16 @@
+<h2>Entrega</h2>
+<%= form_for([@prestamo, @prestamo.entregas.build]) do |f| %>
+  <p>
+    <%= f.label :descripcion %>
+    <%= f.text_area :descripcion %>
+  </p>
+
+  <p>
+    <%= f.label :fechaEntrega %>
+    <%= f.datetime_select :fechaEntrega %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
