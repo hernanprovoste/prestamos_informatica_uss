@@ -2,7 +2,7 @@
 lock '3.5.0'
 
 set :application, 'prestamo_informatica_uss'
-set :repo_url, 'git@github.com:hernanprovoste/prestamo_informatica_uss.git'
+set :repo_url, 'git@github.com:hernanprovoste/prestamos_informatica_uss.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
