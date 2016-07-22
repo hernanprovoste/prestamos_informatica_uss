@@ -124,7 +124,7 @@ header, footer {
 }
 
 .bg-blue {
-  background: $color-sidebar;
+  background: $color-green;
 }
 //@include box-shadow();
 .bg-orange {
@@ -142,4 +142,13 @@ header, footer {
     font-size: 20px;
     color: $color-background;
   }
+}
+
+.center {
+  width: 60%;
+  margin: 0 auto;
+}
+
+textarea, select, input {
+  width: 100%;
 }

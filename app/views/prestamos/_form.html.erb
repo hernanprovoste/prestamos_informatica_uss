@@ -1,46 +1,48 @@
 <div class="row">
   <div class="container">
-    <div class="large-6 columns">
-      <%= form_for(@prestamo) do |f| %>
-        <% if @prestamo.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@prestamo.errors.count, "error") %> prohibited this prestamo from being saved:</h2>
+    <div class="large-12 columns">
+      <div class="center">
+        <%= form_for(@prestamo) do |f| %>
+          <% if @prestamo.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@prestamo.errors.count, "error") %> prohibited this prestamo from being saved:</h2>
 
-            <ul>
-            <% @prestamo.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
+              <ul>
+              <% @prestamo.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :equipo %><br>
+            <%= collection_select(:prestamo, :equipo_id, Equipo.all, :id, :codUss, prompt: true) %>
           </div>
+          <div class="field">
+            <%= f.label :cliente %><br>
+            <%= collection_select(:prestamo, :cliente_id, Cliente.all, :id, :nombre_con_apellido, prompt: true) %>
+          </div>
+          <div class="field">
+            <%= f.label :descripcion %><br>
+            <%= f.text_area :descripcion %>
+          </div>
+
+          <div class="row no-padding">
+            <div class="large-3 columns no-padding clearfix">
+              <div class="actions">
+                <%= f.submit "Ingresar Préstamo", class: 'button' %>
+              </div>
+            </div>
+            <div class="large-3 columns no-padding">
+              <div class="actions">
+                <%= link_to 'Cancelar', prestamos_path, class: 'alert button float-right' %>
+              </div>
+            </div>
+          </div>
+
         <% end %>
-
-        <div class="field">
-          <%= f.label :equipo %><br>
-          <%= collection_select(:prestamo, :equipo_id, Equipo.all, :id, :codUss, prompt: true) %>
-        </div>
-        <div class="field">
-          <%= f.label :cliente %><br>
-          <%= collection_select(:prestamo, :cliente_id, Cliente.all, :id, :nombre_con_apellido, prompt: true) %>
-        </div>
-        <div class="field">
-          <%= f.label :descripcion %><br>
-          <%= f.text_area :descripcion %>
-        </div>
-
-        <div class="row no-padding">
-          <div class="large-3 columns no-padding clearfix">
-            <div class="actions">
-              <%= f.submit "Ingresar Préstamo", class: 'button' %>
-            </div>
-          </div>
-          <div class="large-3 columns no-padding">
-            <div class="actions">
-              <%= link_to 'Cancelar', prestamos_path, class: 'alert button float-right' %>
-            </div>
-          </div>
-        </div>
-
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

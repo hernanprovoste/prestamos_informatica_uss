@@ -1,33 +1,51 @@
-<%= form_for(@cliente) do |f| %>
-  <% if @cliente.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+<div class="row">
+  <div class="container">
+    <div class="large-12 columns">
+      <div class="center">
+        <%= form_for(@cliente) do |f| %>
+          <% if @cliente.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
 
-      <ul>
-      <% @cliente.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+              <ul>
+              <% @cliente.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :rut %><br>
+            <%= f.text_field :rut %>
+          </div>
+          <div class="field">
+            <%= f.label :nombre %><br>
+            <%= f.text_field :nombre %>
+          </div>
+          <div class="field">
+            <%= f.label :apellido %><br>
+            <%= f.text_field :apellido %>
+          </div>
+          <div class="field">
+            <%= f.label :correo_institucional %><br>
+            <%= f.text_field :correo_institucional %>
+          </div>
+          <div class="row no-padding">
+            <div class="large-3 columns no-padding clearfix">
+              <div class="actions">
+                <%= f.submit "Ingresar Cliente", class: 'button' %>
+              </div>
+            </div>
+            <div class="large-3 columns no-padding">
+              <div class="actions">
+                <%= link_to 'Cancelar', clientes_path, class: 'alert button float-right' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :rut %><br>
-    <%= f.text_field :rut %>
   </div>
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :apellido %><br>
-    <%= f.text_field :apellido %>
-  </div>
-  <div class="field">
-    <%= f.label :correo_institucional %><br>
-    <%= f.text_field :correo_institucional %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

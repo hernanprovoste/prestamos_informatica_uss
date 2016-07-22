@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160705192304) do
 
-  create_table "Usuarios", force: :cascade do |t|
-    t.string   "nombre"
-    t.string   "apellido"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "clientes", force: :cascade do |t|
     t.string   "rut"
     t.string   "nombre"
@@ -42,18 +33,6 @@ ActiveRecord::Schema.define(version: 20160705192304) do
 
   add_index "devoluciones", ["prestamo_id"], name: "index_devoluciones_on_prestamo_id"
   add_index "devoluciones", ["usuario_id"], name: "index_devoluciones_on_usuario_id"
-
-  create_table "entregas", force: :cascade do |t|
-    t.text     "descripcion"
-    t.datetime "fechaEntrega"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "prestamo_id"
-    t.integer  "usuario_id"
-  end
-
-  add_index "entregas", ["prestamo_id"], name: "index_entregas_on_prestamo_id"
-  add_index "entregas", ["usuario_id"], name: "index_entregas_on_usuario_id"
 
   create_table "equipos", force: :cascade do |t|
     t.string   "codUss"
@@ -93,6 +72,15 @@ ActiveRecord::Schema.define(version: 20160705192304) do
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "correo_institucional"
+    t.string   "password_digest"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
 end

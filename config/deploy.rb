@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:hernanprovoste/prestamos_informatica_uss.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deploy/prestamo_informatica_uss'
+set :deploy_to, '/home/operavaldi/apps/prestamo_informatica_uss'
 
 # Default value for :scm is :git
 # set :scm, :git
